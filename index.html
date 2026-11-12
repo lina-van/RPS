@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Requisition Point System | Interactive Executive Infographic</title>
+<style>
+:root{--red:#E51636;--navy:#173F5F;--burg:#5B2733;--slate:#26313A;--gray:#68737D;--pink:#F3DCE2;--bg:#F7F5F2;--line:#E4E0DA;--green:#249E57;--amber:#E0912F;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",Apercu,Helvetica,Arial,sans-serif;color:var(--slate);background:var(--bg);line-height:1.45}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+button{font-family:inherit;cursor:pointer}
+.topbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:3px solid var(--red)}
+.topbar .wrap{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding-top:8px;padding-bottom:6px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--red);text-transform:uppercase}
+.eyebrow .x{color:var(--navy)}
+.navlinks{display:flex;gap:2px;flex-wrap:nowrap;margin-left:-8px;overflow-x:auto;max-width:100%}
+.navlinks a{font-size:13px;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 8px;border-radius:6px;white-space:nowrap}
+.navlinks a:hover{background:var(--pink)}
+header{background:#fff;padding:26px 0 26px}
+h1{font-size:44px;font-weight:800;color:var(--burg);letter-spacing:-.01em;line-height:1.05}
+.sub{font-size:22px;font-weight:700;color:var(--navy);margin-top:6px}
+.tag{font-style:italic;color:var(--gray);margin-top:4px;font-size:16px}
+section{padding:34px 0;border-bottom:1px solid var(--line);scroll-margin-top:84px}
+.sec-h{font-size:15px;font-weight:800;color:var(--red);letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.card{background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(23,63,95,.08);padding:22px}
+.muted{color:var(--gray)}
+.ital{font-style:italic;color:var(--gray)}
+/* tips: hidden until the section's light bulb is clicked */
+.hint{display:none;gap:10px;align-items:flex-start;background:#EEF3F7;border-left:4px solid var(--navy);border-radius:8px;padding:10px 14px;font-size:14px;margin-bottom:14px;color:var(--slate);text-transform:none;letter-spacing:0;font-weight:400}
+.hint b{color:var(--navy)}
+.guide{display:none;background:#fff;border:1.5px dashed var(--navy);border-radius:10px;padding:14px 16px;margin-bottom:16px;font-size:14px}
+.guide h4{color:var(--navy);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.guide ol{padding-left:20px}.guide li{margin:4px 0}
+.tips-on .hint{display:flex;animation:fade .25s}
+.tips-on .guide{display:block;animation:fade .25s}
+.bulb{display:inline-flex;align-items:center;gap:5px;border:1.5px solid #E0912F;background:#FFF8E6;color:#7A5A00;border-radius:20px;padding:2px 9px;font-size:12px;font-weight:700;letter-spacing:0;text-transform:none;line-height:1.4;vertical-align:middle}
+.bulb .bl:empty{display:none}
+.bulb .bi{font-size:14px}
+.bulb:hover{background:#FFEFC2}
+.bulb[aria-expanded=true]{background:#FFE08A;border-color:#C77B10}
+.learn{background:var(--pink);border-radius:8px;padding:10px 14px;font-size:14px;margin-top:12px;color:var(--burg)}
+.pulse{animation:pulse 1.8s ease-in-out 4}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(229,22,54,0)}50%{box-shadow:0 0 0 7px rgba(229,22,54,.25)}}
+@keyframes fade{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.intro{display:flex;gap:12px;align-items:flex-start;background:#EEF3F7;border-left:4px solid var(--navy);border-radius:8px;padding:12px 16px;font-size:14px;margin-bottom:18px}
+.intro b{color:var(--navy)}
+/* hero */
+.hero-q{text-align:center;font-weight:800;color:var(--burg);font-size:20px;text-transform:uppercase;margin-bottom:20px}
+.hero-grid{display:grid;grid-template-columns:1fr 200px 1fr;gap:18px;align-items:start}
+.side h3{font-size:18px;font-weight:800;text-transform:uppercase;text-align:center;margin-bottom:10px}
+.side.a h3{color:var(--red)} .side.b h3{color:var(--navy)}
+.icons{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;min-height:76px;align-content:flex-start}
+.icons svg{width:26px;height:32px}
+.mid{text-align:center;font-weight:800;color:var(--gray);font-size:18px;padding-top:24px;text-transform:uppercase}
+.explore-toggle{display:block;margin:20px auto 0;background:var(--red);color:#fff;border:0;font-weight:700;padding:11px 24px;border-radius:24px;font-size:14px}
+.explore{display:none;margin-top:20px}
+.explore.open{display:block;animation:fade .3s}
+.ctrls{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ctrl{background:var(--bg);border-radius:10px;padding:14px 16px}
+.ctrl h4{font-size:13px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.row{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:14px}
+.row label{width:120px;font-weight:600}
+.row input[type=range]{flex:1;accent-color:var(--red)}
+.row output{width:110px;text-align:right;font-weight:700;color:var(--navy)}
+.cmp{margin-top:18px}
+.cmp .bar{height:30px;border-radius:6px;margin:6px 0;display:flex;align-items:center;padding:0 10px;color:#fff;font-weight:700;font-size:13px;transition:width .45s ease;white-space:nowrap;min-width:60px}
+.cmp .note{font-size:13px;margin-top:8px}
+/* shift */
+.toggle{display:inline-flex;background:var(--bg);border-radius:30px;padding:4px;margin-bottom:18px}
+.toggle button{border:0;background:transparent;padding:8px 22px;border-radius:24px;font-weight:800;font-size:14px;color:var(--gray);letter-spacing:.06em}
+.toggle button.on{background:var(--red);color:#fff}
+.shift{display:grid;grid-template-columns:340px 1fr;gap:28px;align-items:center}
+#beam{transition:transform .7s cubic-bezier(.5,1.6,.5,1);transform-origin:160px 60px}
+.pan{transition:transform .7s cubic-bezier(.5,1.6,.5,1)}
+.shift-txt .lbl{font-weight:800;color:var(--red);letter-spacing:.08em;font-size:13px}
+.shift-txt h3{font-size:30px;color:var(--burg);font-weight:800;text-transform:uppercase}
+.shift-txt .q{font-style:italic;color:var(--gray);font-size:18px;margin:4px 0 12px}
+.chips3{display:flex;gap:8px;flex-wrap:wrap}
+.chips3 span{background:var(--bg);border-radius:20px;padding:6px 12px;font-size:14px;font-weight:600}
+.swap{transition:opacity .25s}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;font-weight:600;color:var(--gray);margin-top:10px;justify-content:center}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+/* how it works */
+.banner{background:var(--pink);color:var(--burg);font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;margin-bottom:16px}
+.inputs3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.inp h4{color:var(--red);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.inp p{font-size:13px}
+.mult{display:flex;gap:6px;margin-top:8px}
+.mult span{flex:1;text-align:center;background:var(--bg);border-radius:8px;padding:6px 2px;font-size:12px;font-weight:600}
+.mult b{display:block;color:var(--red);font-size:15px}
+.lvl{font-size:13px;margin-top:8px;border-top:1px solid var(--line);padding-top:8px}
+.lvl div{margin:6px 0}.lvl b{color:var(--burg)}
+.lvl a{color:var(--red);font-weight:700}
+.calc{display:grid;grid-template-columns:1.35fr 1fr;gap:20px}
+table.reqs{width:100%;border-collapse:collapse;font-size:14px}
+table.reqs th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);padding:6px 4px;border-bottom:2px solid var(--line)}
+table.reqs td{padding:6px 4px;border-bottom:1px solid var(--line)}
+table.reqs select{font:inherit;font-size:13px;padding:4px 6px;border:1px solid var(--navy);border-radius:6px;background:#fff}
+.x{border:0;background:none;color:var(--gray);font-size:18px;line-height:1}
+.x:hover{color:var(--red)}
+.calc-actions{display:flex;gap:8px;margin-top:10px}
+.btn{border:0;background:var(--navy);color:#fff;font-weight:700;padding:8px 16px;border-radius:20px;font-size:13px}
+.btn.red{background:var(--red)}
+.time{background:var(--bg);border-radius:10px;padding:12px 14px;margin-top:14px}
+.time .row label{width:160px}
+.gauge-card{text-align:center}
+.gauge-card h4{color:var(--red);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.pct{font-size:46px;font-weight:800;color:var(--navy);line-height:1}
+.zone-pill{display:inline-block;margin-top:6px;padding:5px 14px;border-radius:20px;color:#fff;font-weight:800;font-size:13px;letter-spacing:.06em}
+.zones{display:flex;margin-top:14px;border-radius:8px;overflow:hidden}
+.zones div{flex:1;padding:8px 4px;color:#fff;font-weight:800;font-size:12px;opacity:.45;transition:opacity .3s}
+.zones div.act{opacity:1}
+.zones small{display:block;font-weight:600}
+.math{font-size:13px;margin-top:12px;text-align:left;background:var(--bg);border-radius:8px;padding:10px 12px}
+.chart{display:flex;align-items:flex-end;gap:10px;height:150px;margin-top:10px;padding:0 4px;border-bottom:2px solid var(--line)}
+.col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;position:relative;cursor:help}
+.col .b{width:100%;background:var(--red);border-radius:4px 4px 0 0;transition:background .2s}
+.col:hover .b{background:var(--navy)}
+.col .v{font-size:12px;font-weight:700;color:var(--navy)}
+.col .tip{position:absolute;bottom:105%;left:50%;transform:translateX(-50%);background:var(--slate);color:#fff;font-size:12px;padding:8px 10px;border-radius:6px;width:200px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:5}
+.col:hover .tip{opacity:1}
+.xlab{display:flex;gap:10px;padding:4px 4px 0}
+.xlab span{flex:1;text-align:center;font-size:12px;color:var(--gray);font-weight:600}
+/* tabs */
+.tabs{display:flex;gap:6px;border-bottom:2px solid var(--line)}
+.tabs button{border:0;background:none;padding:12px 18px;font-weight:800;font-size:14px;color:var(--gray);letter-spacing:.06em;border-bottom:3px solid transparent;margin-bottom:-2px}
+.tabs button.on{color:var(--red);border-bottom-color:var(--red)}
+.tabpanel{padding:26px 6px 6px;animation:fade .3s}
+.tabpanel h3{font-size:28px;color:var(--burg);font-weight:800}
+.tabpanel p{font-size:17px;color:var(--gray);margin-top:6px}
+/* pilot */
+.pilot{background:var(--burg);color:#fff;border-radius:12px;padding:26px}
+.pilot .sec-h{color:#fff}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:12px 0 16px}
+.stat{text-align:center}
+.stat .n{font-size:52px;font-weight:800;line-height:1}
+.stat .k{color:var(--pink);font-weight:800;letter-spacing:.1em;font-size:13px}
+.stat .s{color:var(--pink);font-size:14px}
+.impr{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+.impr button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:10px;padding:12px;text-align:left;font-size:14px;font-weight:700}
+.impr button::after{content:" ▸";opacity:.7}
+.impr button:hover,.impr button.on{background:#fff;color:var(--burg)}
+.impr-detail{margin-top:12px;background:rgba(255,255,255,.1);border-radius:10px;padding:14px 16px;font-size:14px;display:none}
+.impr-detail.open{display:block;animation:fade .3s}
+.impr-detail b{color:var(--pink)}
+/* guardrail */
+.guard{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:stretch}
+.guard-main{background:var(--red);color:#fff;border-radius:12px;padding:30px}
+.guard-main h3{font-size:36px;font-weight:800;line-height:1.05}
+.guard-main p{margin-top:10px;font-size:16px}
+.lines{margin-top:16px;font-size:14px;font-weight:700}
+.gbtns{display:flex;flex-direction:column;gap:10px}
+.gbtn{display:flex;align-items:center;gap:14px;background:#fff;border:2px solid var(--line);border-radius:12px;padding:12px 14px;text-align:left;transition:border-color .2s}
+.gbtn:hover{border-color:var(--navy)}
+.gbtn .num{width:40px;height:40px;border-radius:50%;background:var(--burg);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0}
+.gbtn .t{font-weight:800;color:var(--burg);letter-spacing:.06em}
+.gbtn .t::after{content:"  ▸";font-size:11px;color:var(--gray);font-weight:600}
+.gbtn.on .t::after{content:""}
+.gbtn .d{font-size:14px;color:var(--gray);display:none;margin-top:3px}
+.gbtn.on{border-color:var(--red)}
+.gbtn.on .num{background:var(--red)}
+.gbtn.on .d{display:block;animation:fade .3s}
+/* framework */
+.formula{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font-weight:800;font-size:18px;text-transform:uppercase;text-align:center}
+.formula .op{color:var(--red);font-size:28px}
+.formula .term{background:#fff;border-radius:10px;padding:12px 18px;box-shadow:0 1px 3px rgba(0,0,0,.06);min-width:170px}
+.formula .term small{display:block;font-size:12px;color:var(--gray);text-transform:none;font-weight:600;min-height:16px}
+.formula .res{color:var(--red)}
+.fchips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.fchips button{border:1.5px solid var(--navy);background:#fff;color:var(--navy);border-radius:20px;padding:7px 14px;font-weight:700;font-size:13px}
+.fchips button.on,.fchips button:hover{background:var(--navy);color:#fff}
+.fnote{text-align:center;font-size:13px;margin-top:12px}
+/* collapsible sections */
+details.collapse{background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(23,63,95,.08);margin-bottom:14px;overflow:hidden}
+details.collapse>summary{list-style:none;cursor:pointer;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+details.collapse>summary::-webkit-details-marker{display:none}
+details.collapse>summary .sec-h{margin:0}
+details.collapse>summary .sum-r{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--gray);font-weight:600}
+details.collapse>summary .chev{width:30px;height:30px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;color:var(--red);font-weight:800;font-size:18px;transition:transform .25s}
+details.collapse[open]>summary .chev{transform:rotate(180deg)}
+details.collapse[open]>summary{border-bottom:1px solid var(--line)}
+.collapse-body{padding:20px 22px;animation:fade .3s}
+/* complexity assessment */
+.ca-score{background:var(--bg);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:14px}
+.ca-meta{flex:1;min-width:160px}
+.ca-label{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+.ca-count{font-size:14px;color:var(--gray);margin-top:2px}
+.ca-badge{padding:9px 48px;border-radius:8px;font-size:18px;font-weight:800;letter-spacing:.04em;transition:all .3s}
+.ca-badge.pending{background:var(--line);color:var(--gray)}
+.ca-badge.standard{background:#E3F3EA;color:var(--green)}
+.ca-badge.moderate{background:#FCEEDC;color:#B86A12}
+.ca-badge.complex{background:#FDE5EA;color:var(--red)}
+.ca-mult{font-size:13px;font-weight:700;color:var(--navy)}
+.ca-howto{font-size:13px;color:var(--gray);margin-bottom:12px}
+.ca-layout{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.ca-left{display:flex;flex-direction:column;gap:14px}
+.ca-pane{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ca-ph{padding:9px 14px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;display:flex;justify-content:space-between}
+.ca-ph.pos{background:var(--navy)}
+.ca-ph.neg{background:var(--green)}
+.ca-ph small{font-weight:600;letter-spacing:0;text-transform:none;opacity:.9}
+.q-row{display:grid;grid-template-columns:1fr auto 30px;align-items:center;padding:8px 14px;border-bottom:1px solid var(--line);gap:8px;transition:background .12s}
+.q-row:last-child{border-bottom:none}
+.q-row:hover{background:#faf8f5}
+.q-row.a-pos{background:#FEF2F4}
+.q-row.a-neg{background:#EEF8F2}
+.q-row.a-no{background:#fafafa}
+.q-text{font-size:14px;line-height:1.3}
+.tog{display:flex;gap:5px}
+.tb{padding:3px 12px;border-radius:20px;border:1.5px solid var(--line);background:#fff;font-size:13px;font-weight:600;color:var(--gray);transition:all .15s}
+.tb:hover{border-color:#999;color:var(--slate)}
+.tb.yes.ap{background:var(--red);border-color:var(--red);color:#fff}
+.tb.yes.an{background:var(--green);border-color:var(--green);color:#fff}
+.tb.no.ac{background:var(--navy);border-color:var(--navy);color:#fff}
+.pts{text-align:center;font-size:15px;font-weight:800;color:var(--gray)}
+.pts.pos{color:var(--red)}.pts.neg{color:var(--green)}
+/* definitions & faqs */
+.defs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.def{background:var(--bg);border-radius:10px;padding:14px 16px;font-size:14px}
+.def dt{font-weight:800;color:var(--burg);margin-bottom:3px}
+.faq{background:var(--bg);border-radius:10px;margin-bottom:8px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:13px 18px;font-weight:700;color:var(--navy);display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--red);font-size:20px;line-height:1}
+.faq[open] summary::after{content:"−"}
+.faq p{padding:0 18px 14px;font-size:14px}
+footer{background:var(--navy);color:#fff;font-size:13px;padding:14px 0;text-align:center;letter-spacing:.02em}
+@media(max-width:900px){
+ h1{font-size:34px}.hero-grid{grid-template-columns:1fr}.mid{padding:0}
+ .ctrls,.calc,.shift,.guard,.defs,.ca-layout{grid-template-columns:1fr}.inputs3{grid-template-columns:1fr}
+ .impr{grid-template-columns:1fr 1fr}.navlinks a{font-size:12px;padding:5px 6px}.shift svg{max-width:320px;margin:0 auto}
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_ApprovalStatus msdt:dt="string">0</mso:_ApprovalStatus>
+<mso:MediaServiceImageTags msdt:dt="string"></mso:MediaServiceImageTags>
+<mso:_ApprovalAssignedTo msdt:dt="string"></mso:_ApprovalAssignedTo>
+<mso:_ApprovalRespondedBy msdt:dt="string"></mso:_ApprovalRespondedBy>
+<mso:_ApprovalSentBy msdt:dt="string"></mso:_ApprovalSentBy>
+<mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
+<mso:TaxCatchAll msdt:dt="string"></mso:TaxCatchAll>
+<mso:AuditStatus msdt:dt="string">Approved</mso:AuditStatus>
+<mso:LastReviewDate msdt:dt="string">2026-11-11T00:00:00Z</mso:LastReviewDate>
+<mso:NextReview msdt:dt="string">2027-11-11T00:00:00Z</mso:NextReview>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="eyebrow">Talent Acquisition Enablement <span class="x">×</span> People Analytics &nbsp;|&nbsp; Capacity Management</div>
+  <nav class="navlinks">
+    <a href="#s1">The Shift</a><a href="#s2">How It Works</a><a href="#s3">What Changes</a><a href="#s4">Guardrail</a><a href="#s5">Bigger Idea</a><a href="#s6" data-open="ca">Complexity Assessment</a><a href="#s6" data-open="defs">Definitions</a><a href="#s6" data-open="faqs">FAQs</a>
+  </nav>
+</div></div>
+
+<header><div class="wrap">
+  <div class="intro"><span style="font-size:20px;line-height:1">💡</span><span><b>This page is interactive.</b> Whenever you want more context or direction, <b>click the light bulb next to a section title</b>. It shows tips on what to click, drag or hover over, and what that section teaches you about the Requisition Point System (RPS). Click it again to hide the tips.</span></div>
+  <h1>THE REQUISITION POINT SYSTEM</h1>
+  <div class="sub">A better way to understand recruiting capacity</div>
+  <div class="tag">Managing capacity by the effort work requires, not by counting it.</div>
+</div></header>
+
+<!-- HERO -->
+<section style="background:#fff" class="tip-scope"><div class="wrap">
+  <div class="hero-q sec-h" style="justify-content:center;color:var(--burg);font-size:20px;letter-spacing:0">When every requisition counts as “one,” different workloads look the same.</div>
+  <div class="hero-grid">
+    <div class="side a"><h3 id="aTitle">8 Complex Reqs</h3><div class="icons" id="aIcons"></div></div>
+    <div class="mid">Can create<br>more work than</div>
+    <div class="side b"><h3 id="bTitle">12 Standard Reqs</h3><div class="icons" id="bIcons"></div></div>
+  </div>
+  <div class="hint"><span><b>Both sides look like a pile of reqs, but they don't take the same amount of work.</b> Click <b>“Try it yourself”</b> below to open the comparison, then drag the sliders to see how complexity and how long a req has been open change the real workload.</span></div>
+  <button class="explore-toggle pulse" id="exploreBtn" aria-expanded="false">Try it yourself: compare two workloads ▾</button>
+  <div class="explore" id="explore">
+    <div class="guide">
+      <h4>What you're looking at</h4>
+      <p>Two recruiters' workloads. Today we compare them by <b>counting reqs</b>. RPS compares them by <b>the hours of work those reqs still need</b>, based on how complex each req is and how long it has been open.</p>
+      <h4 style="margin-top:10px">Drag the sliders, then watch the red and navy bars below</h4>
+      <ol>
+        <li><b>Number of reqs:</b> add or remove reqs from a workload.</li>
+        <li><b>Complexity:</b> slide from Standard to Moderate to Complex. Harder roles take more hours.</li>
+        <li><b>How long open:</b> slide from Wk 1 to 10+. New reqs need the most work; older reqs need less.</li>
+      </ol>
+      <p style="margin-top:6px"><b>Try this:</b> change Workload A's complexity to <i>Standard</i> and watch its bar shrink. Then move Workload B to <i>Wk 1</i> and watch it grow. Same number of reqs, very different workloads.</p>
+    </div>
+    <div class="ctrls">
+      <div class="ctrl"><h4 style="color:var(--red)">Workload A</h4>
+        <div class="row"><label>Number of reqs</label><input type="range" id="aN" min="1" max="20" value="8"><output id="aNo"></output></div>
+        <div class="row"><label>Complexity</label><input type="range" id="aC" min="0" max="2" value="2"><output id="aCo"></output></div>
+        <div class="row"><label>How long open</label><input type="range" id="aA" min="0" max="4" value="0"><output id="aAo"></output></div>
+      </div>
+      <div class="ctrl"><h4 style="color:var(--navy)">Workload B</h4>
+        <div class="row"><label>Number of reqs</label><input type="range" id="bN" min="1" max="20" value="12"><output id="bNo"></output></div>
+        <div class="row"><label>Complexity</label><input type="range" id="bC" min="0" max="2" value="0"><output id="bCo"></output></div>
+        <div class="row"><label>How long open</label><input type="range" id="bA" min="0" max="4" value="3"><output id="bAo"></output></div>
+      </div>
+    </div>
+    <div class="cmp">
+      <div class="muted" style="font-size:13px;font-weight:700">Hours of work still needed (estimated). A longer bar means a heavier workload.</div>
+      <div class="bar" id="aBar" style="background:var(--red)"></div>
+      <div class="bar" id="bBar" style="background:var(--navy)"></div>
+      <div class="note muted" id="cmpNote"></div>
+      <div class="learn" id="learn"></div>
+      <div class="note ital">By count alone: <span id="countOnly"></span>. Illustrative example, not live data.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 1 SHIFT -->
+<section id="s1" class="tip-scope"><div class="wrap">
+  <div class="sec-h">1 &nbsp;|&nbsp; The Business Problem → The Shift</div>
+  <div class="card">
+    <div class="hint"><span><b>Click BEFORE and AFTER</b> to see how RPS changes the way we look at workload. Each box on the scale is a req, and its size shows how much work it takes.</span></div>
+    <div class="toggle" role="tablist">
+      <button id="tBefore" class="on">BEFORE</button><button id="tAfter">AFTER</button>
+    </div>
+    <div class="shift">
+      <svg viewBox="0 0 320 200" aria-label="Capacity scale">
+        <rect x="150" y="60" width="20" height="120" fill="#173F5F"/>
+        <rect x="100" y="178" width="120" height="14" rx="4" fill="#173F5F"/>
+        <circle cx="160" cy="60" r="10" fill="#5B2733"/>
+        <g id="beam">
+          <rect x="40" y="55" width="240" height="10" rx="5" fill="#5B2733"/>
+          <g class="pan" id="panL"><line x1="60" y1="60" x2="40" y2="110" stroke="#68737D" stroke-width="2"/><line x1="60" y1="60" x2="80" y2="110" stroke="#68737D" stroke-width="2"/><path d="M22 110 h76 a38 16 0 0 1 -76 0z" fill="#5B2733"/><g id="boxL"></g></g>
+          <g class="pan" id="panR"><line x1="260" y1="60" x2="240" y2="110" stroke="#68737D" stroke-width="2"/><line x1="260" y1="60" x2="280" y2="110" stroke="#68737D" stroke-width="2"/><path d="M222 110 h76 a38 16 0 0 1 -76 0z" fill="#5B2733"/><g id="boxR"></g></g>
+        </g>
+      </svg>
+      <div><div class="shift-txt swap" id="shiftTxt"></div><div class="legend" id="legend"></div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 2 HOW IT WORKS -->
+<section id="s2" class="tip-scope"><div class="wrap">
+  <div class="sec-h">2 &nbsp;|&nbsp; How RPS Works: Three Inputs → One Capacity Picture</div>
+  <div class="hint"><span><b>RPS combines three inputs into one capacity picture.</b> Read each card to learn what the input means. <b>Hover over the bars</b> in the Requisition Age chart to see what work happens at each stage. Then try the calculator below.</span></div>
+  <div class="inputs3">
+    <div class="card inp"><h4>Complexity</h4>
+      <div class="mult"><span>Standard<b>×1.0</b></span><span>Moderate<b>×1.25</b></span><span>Complex<b>×1.5</b></span></div>
+      <p class="ital" style="margin-top:8px">An optional rubric creates a consistent language for effort.</p>
+      <div class="lvl">
+        <div><b>Standard ×1.0:</b> Straightforward to fill. Typical effort, clear requirements and a strong candidate pool. About 38 hours of work.</div>
+        <div><b>Moderate ×1.25:</b> Some extra effort from sourcing, role requirements or stakeholder alignment. About 47 hours.</div>
+        <div><b>Complex ×1.5:</b> High effort. Limited talent, specialized requirements or complexity across the search. About 57 hours.</div>
+        <div class="muted">The multiplier scales a standard req's hours. Complexity is about effort, not job level.</div>
+        <div><a href="#s6" data-open="ca">Rate a req with the Complexity Assessment ↓</a></div>
+      </div></div>
+    <div class="card inp"><h4>Requisition Age</h4>
+      <div class="chart" id="ageChart"></div>
+      <div class="xlab"><span>Wk 1</span><span>2–4</span><span>5–8</span><span>8–10</span><span>10+</span></div>
+      <p class="ital" style="margin-top:6px">Effort is front-loaded and decreases as a req ages.</p>
+      <div class="hint" style="margin:8px 0 0"><span><b>Hover over each bar</b> to see the work at that stage.</span></div>
+      <p class="muted" style="font-size:12px;margin-top:4px">Each bar shows the hours of work still left on a standard req at that age.</p></div>
+    <div class="card inp"><h4>Available Time</h4>
+      <p style="font-weight:800;font-size:16px;line-height:1.8">+ WORKDAYS<br>− PTO<br>− PROJECT WORK</p>
+      <p class="ital">Capacity is personal, not a flat assumption.</p>
+      <p style="font-size:13px;margin-top:8px">Each workday counts as 8 hours. Time off and project work come out first, so capacity reflects the hours someone actually has for recruiting.</p></div>
+  </div>
+
+  <div class="card">
+    <div class="banner">⚠ Illustrative example – not live data. A simplified version of the RPS model using generic sample reqs.</div>
+    <div class="calc">
+      <div>
+        <div class="guide">
+          <h4>Try it: what to do</h4>
+          <p>This is one sample recruiter's workload. The gauge on the right shows how full their capacity is. Try these and watch the gauge move:</p>
+          <ol>
+            <li><b>Change a req's complexity</b> from Standard to Complex. Its hours go up.</li>
+            <li><b>Change a req's age</b> from Wk 1 to 10+. Its hours drop, because older reqs need less work.</li>
+            <li><b>Click “+ Add req”</b> a few times. See how quickly new reqs push the gauge toward yellow and red.</li>
+            <li><b>Add PTO or project hours</b> below. Same reqs, less time, so capacity fills up.</li>
+          </ol>
+          <p style="margin-top:4px">Click <b>Reset</b> anytime to start over.</p>
+        </div>
+        <h4 style="color:var(--red);font-size:13px;letter-spacing:.08em;margin-bottom:6px">SAMPLE WORKLOAD</h4>
+        <table class="reqs"><thead><tr><th>Req</th><th>Complexity</th><th>How long open</th><th>Hours this period</th><th></th></tr></thead><tbody id="reqRows"></tbody></table>
+        <div class="calc-actions"><button class="btn red" id="addReq">+ Add req</button><button class="btn" id="resetCalc">Reset</button></div>
+        <p class="muted" style="font-size:12px;margin-top:8px">“Hours this period” is the part of each req's remaining work that falls inside the period set below. The rest carries into later months.</p>
+        <div class="time">
+          <div style="font-weight:800;color:var(--red);font-size:13px;letter-spacing:.08em">AVAILABLE TIME THIS PERIOD</div>
+          <div class="muted" style="font-size:12px;margin-bottom:4px">Drag to set the workdays in the period and how much time goes to PTO and projects.</div>
+          <div class="row"><label>Workdays in period</label><input type="range" id="wd" min="5" max="22" value="20"><output id="wdo"></output></div>
+          <div class="row"><label>PTO (hours)</label><input type="range" id="pto" min="0" max="80" step="4" value="0"><output id="ptoo"></output></div>
+          <div class="row"><label>Project work (hours)</label><input type="range" id="proj" min="0" max="80" step="4" value="16"><output id="projo"></output></div>
+        </div>
+      </div>
+      <div class="gauge-card">
+        <h4>Capacity Picture</h4>
+        <div class="muted" style="font-size:12px">Hours of work needed ÷ hours available</div>
+        <svg viewBox="0 0 220 125" style="width:100%;max-width:280px;margin-top:6px">
+          <path d="M20 110 A90 90 0 0 1 200 110" fill="none" stroke="#E4E0DA" stroke-width="18"/>
+          <path id="arcG" fill="none" stroke="#249E57" stroke-width="18"/>
+          <path id="arcY" fill="none" stroke="#E0912F" stroke-width="18"/>
+          <path id="arcR" fill="none" stroke="#E51636" stroke-width="18"/>
+          <line id="needle" x1="110" y1="110" x2="110" y2="32" stroke="#26313A" stroke-width="4" stroke-linecap="round" style="transition:transform .6s;transform-origin:110px 110px"/>
+          <circle cx="110" cy="110" r="7" fill="#26313A"/>
+        </svg>
+        <div class="pct" id="pct">0%</div>
+        <div class="zone-pill" id="zonePill">GREEN</div>
+        <div class="zones">
+          <div id="zG" style="background:var(--green)">GREEN<small>&lt;70% · Healthy</small></div>
+          <div id="zY" style="background:var(--amber)">YELLOW<small>70–90% · Watch closely</small></div>
+          <div id="zR" style="background:var(--red)">RED<small>&gt;90% · Check in</small></div>
+        </div>
+        <p class="ital" style="margin-top:10px;font-size:14px">Above 100% is useful information, not an error.</p>
+        <div class="math" id="math"></div>
+      </div>
+    </div>
+    <div class="learn" id="calcLearn" style="margin-top:16px"></div>
+  </div>
+</div></section>
+
+<!-- 3 WHAT CHANGES -->
+<section id="s3"><div class="wrap">
+  <div class="tip-scope">
+    <div class="sec-h">3 &nbsp;|&nbsp; What Changes for the Business</div>
+    <div class="card">
+      <div class="hint"><span><b>Click each tab</b> to see what RPS changes for advisors, leaders and the TA function.</span></div>
+      <div class="tabs" role="tablist">
+        <button class="on" data-t="0">FOR ADVISORS</button><button data-t="1">FOR LEADERS</button><button data-t="2">FOR THE FUNCTION</button>
+      </div>
+      <div class="tabpanel" id="tp"></div>
+    </div>
+  </div>
+
+  <div class="pilot tip-scope" style="margin-top:22px">
+    <div class="sec-h" style="margin-bottom:2px">Built with users, not for them</div>
+    <div class="ital" style="color:var(--pink)">Validation and continuous improvement</div>
+    <div class="stats">
+      <div class="stat"><div class="n"><span class="count" data-to="10">0</span>+</div><div class="k">WEEKS</div><div class="s">live pilot</div></div>
+      <div class="stat"><div class="n"><span class="count" data-to="40">0</span></div><div class="k">FEEDBACK</div><div class="s">items logged</div></div>
+      <div class="stat"><div class="n"><span class="count" data-to="36">0</span></div><div class="k">IMPROVEMENTS</div><div class="s">delivered</div></div>
+    </div>
+    <div style="font-weight:800">Participant feedback changed the model, dashboard and experience.</div>
+    <div class="hint" style="margin:12px 0 0"><span><b>Click each improvement</b> to see what users told us, what we changed and why it matters.</span></div>
+    <div class="impr">
+      <button data-i="0">Refined multipliers</button><button data-i="1">Early-stage effort</button><button data-i="2">PTO + project time</button><button data-i="3">Capacity zones</button>
+    </div>
+    <div class="impr-detail" id="imprDetail"></div>
+  </div>
+</div></section>
+
+<!-- 4 GUARDRAIL -->
+<section id="s4" class="tip-scope"><div class="wrap">
+  <div class="sec-h">4 &nbsp;|&nbsp; The Guardrail</div>
+  <div class="hint"><span><b>Click each principle</b> on the right to see what it means.</span></div>
+  <div class="guard">
+    <div class="guard-main">
+      <h3>CAPACITY,<br>NOT PERFORMANCE.</h3>
+      <p>Decision support for workload conversations. Never evaluations, goals, rankings or ratings.</p>
+      <div class="lines">Manage the work, coach the people. · Capacity, not quotas. · Workload, not performance.</div>
+    </div>
+    <div class="gbtns">
+      <button class="gbtn" data-g="0"><span class="num">1</span><span><span class="t">OWN VIEW</span><span class="d">SSAs see only their own view. No one is compared to anyone else.</span></span></button>
+      <button class="gbtn" data-g="1"><span class="num">2</span><span><span class="t">HUMAN JUDGMENT</span><span class="d">Leaders keep their judgment. RPS informs decisions; it doesn't make them.</span></span></button>
+      <button class="gbtn" data-g="2"><span class="num">3</span><span><span class="t">CONTEXT</span><span class="d">RPS adds context to workload conversations, showing how the number and complexity of reqs add up so leaders can balance the load and spot burnout risk before it happens.</span></span></button>
+    </div>
+  </div>
+</div></section>
+
+<!-- 5 BIGGER IDEA -->
+<section id="s5" class="tip-scope"><div class="wrap">
+  <div class="sec-h">5 &nbsp;|&nbsp; The Bigger Idea: A Portable Capacity-Management Framework</div>
+  <div class="formula">
+    <div class="term">Unit of work<small id="fU">&nbsp;</small></div><span class="op">+</span>
+    <div class="term">Effort / complexity<small id="fE">&nbsp;</small></div><span class="op">+</span>
+    <div class="term">Available capacity<small id="fA">&nbsp;</small></div><span class="op">=</span>
+    <div class="term res">Better tradeoffs<small>&nbsp;</small></div>
+  </div>
+  <p class="muted" style="text-align:center;margin-top:18px">The same approach can extend to any team or function that manages variable work against limited time:</p>
+  <div class="hint" style="max-width:720px;margin:12px auto 0"><span><b>Click a team type below.</b> The formula above updates to show what the unit of work, effort and available capacity could look like for that team.</span></div>
+  <div class="fchips" id="fchips"></div>
+  <div class="fnote ital" id="fnote">Examples are illustrative.</div>
+</div></section>
+
+<!-- 6 TOOLS & REFERENCE (collapsible) -->
+<section id="s6"><div class="wrap">
+
+  <details class="collapse tip-scope" id="ca">
+    <summary><span class="sec-h">Requisition Complexity Assessment</span><span class="sum-r"><span>Rate a req as Standard, Moderate or Complex</span><span class="chev">▾</span></span></summary>
+    <div class="collapse-body">
+      <div class="hint"><span><b>Think of one real or sample req and answer Yes or No to each question.</b> Complexity factors add a point; favorable factors take a point away. The rating updates as you go and shows which RPS multiplier that req would use. Click an answer again to clear it.</span></div>
+      <div class="ca-score">
+        <div class="ca-meta">
+          <div class="ca-label">Complexity rating</div>
+          <div class="ca-count" id="caCount"></div>
+          <div class="ca-mult" id="caMult"></div>
+        </div>
+        <div class="ca-badge pending" id="caBadge">Pending</div>
+        <button class="btn" id="caReset">↺ Reset all responses</button>
+      </div>
+      <div class="ca-howto">Score of 0 or less = <b>Standard</b> · 1–4 = <b>Moderate</b> · 5 or more = <b>Complex</b></div>
+      <div class="ca-layout">
+        <div class="ca-left">
+          <div class="ca-pane"><div class="ca-ph pos"><span>Complexity factors</span><small>Yes = +1</small></div><div id="caPos"></div></div>
+          <div class="ca-pane"><div class="ca-ph pos"><span>Skills and talent pool</span><small>Yes = +1</small></div><div id="caSkills"></div></div>
+        </div>
+        <div class="ca-pane"><div class="ca-ph neg"><span>Favorable factors</span><small>Yes = −1</small></div><div id="caNeg"></div></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="collapse" id="defs">
+    <summary><span class="sec-h">Definitions</span><span class="sum-r"><span>Key RPS terms</span><span class="chev">▾</span></span></summary>
+    <div class="collapse-body"><dl class="defs" id="defList"></dl></div>
+  </details>
+
+  <details class="collapse tip-scope" id="faqs">
+    <summary><span class="sec-h">Frequently Asked Questions</span><span class="sum-r"><span>Common questions about RPS</span><span class="chev">▾</span></span></summary>
+    <div class="collapse-body">
+      <div class="hint"><span><b>Click a question</b> to see the answer. Click it again to close it.</span></div>
+      <div id="faqList"></div>
+    </div>
+  </details>
+
+</div></section>
+
+<footer>Requisition Point System &nbsp;|&nbsp; Capacity Management Case Study &nbsp;|&nbsp; Tara Dorsey &amp; Lina Van &nbsp;|&nbsp; Talent Acquisition Enablement × People Analytics</footer>
+
+<script>
+/* LIGHT BULBS: one per section title; tips hidden until clicked */
+document.querySelectorAll('.tip-scope').forEach(scope=>{
+  const title=scope.querySelector('.sec-h');
+  if(!title) return;
+  const owned=[...scope.querySelectorAll('.hint,.guide')].filter(el=>el.closest('.tip-scope')===scope);
+  if(!owned.length) return;
+  const b=document.createElement('button');b.className='bulb';b.type='button';
+  b.setAttribute('aria-expanded','false');b.title='Show tips';b.setAttribute('aria-label','Show tips');
+  b.innerHTML='<span class="bi">💡</span><span class="bl"></span>';
+  b.addEventListener('click',e=>{
+    e.preventDefault();e.stopPropagation();
+    const o=scope.classList.toggle('tips-on');
+    if(o && scope.tagName==='DETAILS') scope.open=true;
+    b.setAttribute('aria-expanded',o);b.querySelector('.bl').textContent=o?'Hide':'';
+    b.title=o?'Hide tips':'Show tips';b.setAttribute('aria-label',b.title);
+  });
+  title.appendChild(b);
+});
+/* links that open a collapsible */
+document.querySelectorAll('a[data-open]').forEach(a=>a.addEventListener('click',e=>{
+  const d=document.getElementById(a.dataset.open); if(!d)return;
+  e.preventDefault(); d.open=true; d.scrollIntoView({behavior:'smooth',block:'start'});
+}));
+
+const MULT=[1,1.25,1.5], CNAME=["Standard","Moderate","Complex"];
+const AGES=["Wk 1","2–4","5–8","8–10","10+"];
+const REMAIN=[37.75,34.5,26.5,14,4.5];
+const STAGE=["Strategic prep, req consult and posting","Screening candidates and hiring manager syncs","Round 1 interviews, debriefs and dispositions","Round 2 interviews, references and debriefs","Finals, offer, closing and role admin"];
+const fmt=n=>Math.round(n).toLocaleString();
+
+/* HERO */
+const reqIcon=c=>`<svg viewBox="0 0 26 32"><path d="M2 2h16l6 6v22H2z" fill="#fff" stroke="${c}" stroke-width="2"/><path d="M6 13h14M6 18h14M6 23h9" stroke="${c}" stroke-width="2"/></svg>`;
+function hero(){
+  const g=id=>+document.getElementById(id).value;
+  const A={n:g('aN'),c:g('aC'),a:g('aA')}, B={n:g('bN'),c:g('bC'),a:g('bA')};
+  [['a',A],['b',B]].forEach(([k,o])=>{
+    document.getElementById(k+'No').textContent=o.n+' reqs';
+    document.getElementById(k+'Co').textContent=CNAME[o.c]+' ×'+MULT[o.c];
+    document.getElementById(k+'Ao').textContent=AGES[o.a];
+    document.getElementById(k+'Title').textContent=o.n+' '+CNAME[o.c]+' reqs';
+    document.getElementById(k+'Icons').innerHTML=reqIcon(k=='a'?'#E51636':'#173F5F').repeat(o.n);
+  });
+  const ea=A.n*REMAIN[A.a]*MULT[A.c], eb=B.n*REMAIN[B.a]*MULT[B.c], mx=Math.max(ea,eb);
+  const ab=document.getElementById('aBar'), bb=document.getElementById('bBar');
+  ab.style.width=(ea/mx*100)+'%'; ab.textContent='A: ~'+fmt(ea)+' hrs';
+  bb.style.width=(eb/mx*100)+'%'; bb.textContent='B: ~'+fmt(eb)+' hrs';
+  document.getElementById('countOnly').textContent=`A = ${A.n} reqs, B = ${B.n} reqs`;
+  const same=Math.abs(ea-eb)<1, r=ea>eb?ea/eb:eb/ea;
+  document.getElementById('cmpNote').textContent = same ? 'The two workloads require about the same effort.' :
+    `Workload ${ea>eb?'A':'B'} requires about ${r.toFixed(1)}× the effort${(ea>eb)!==(A.n>B.n)&&A.n!==B.n?', even though it has fewer reqs.':'.'}`;
+  const hidden=!same&&A.n!==B.n&&(ea>eb)!==(A.n>B.n);
+  document.getElementById('learn').innerHTML = hidden
+   ? '<b>What you’re learning:</b> the workload with <i>fewer</i> reqs is actually heavier. A req count would have hidden this. That’s the problem RPS solves.'
+   : same && A.n!==B.n
+   ? '<b>What you’re learning:</b> different req counts can add up to the same amount of work. Counting alone can’t tell you that.'
+   : '<b>What you’re learning:</b> right now, the count and the effort point the same way. Change complexity or how long the reqs have been open to see when a count stops telling the true story.';
+}
+['aN','aC','aA','bN','bC','bA'].forEach(id=>document.getElementById(id).addEventListener('input',hero));
+const exBtn=document.getElementById('exploreBtn');
+exBtn.onclick=()=>{const e=document.getElementById('explore');e.classList.toggle('open');const o=e.classList.contains('open');exBtn.classList.remove('pulse');exBtn.textContent=o?'Hide the comparison ▴':'Try it yourself: compare two workloads ▾';exBtn.setAttribute('aria-expanded',o)};
+hero();
+
+/* BEFORE / AFTER */
+const SHIFT={
+ before:{lbl:'BEFORE',h:'Count the work',q:'“How many requisitions?”',c:['Complexity invisible','Overload late','Tradeoffs by instinct'],tilt:-14,
+   L:['u','u','u'],R:['u','u','u','u'],
+   ex:'Every req looks the same size, so 3 reqs seem lighter than 4. But the scale tips the other way: the work inside those 3 reqs is invisible to a count.'},
+ after:{lbl:'AFTER',h:'Understand the work',q:'“What does this workload actually require?”',c:['Complexity visible','Pressure earlier','Tradeoffs with facts'],tilt:0,
+   L:['c','c','c','m','m'],R:['s','s','s','s','s','s','m','m','m','m'],
+   ex:'Now each req is sized by its complexity. 5 larger reqs (a blend of complex and moderate) balance 10 smaller ones (a blend of standard and moderate). Different counts, the same amount of work: a balanced load.'}
+};
+const BOX={u:[15,'#fff','#68737D'],s:[11,'#173F5F','#173F5F'],m:[14,'#E0912F','#E0912F'],c:[18,'#E51636','#E51636']};
+function drawBoxes(list,x0,w){
+  let x=x0,y=110,rowH=0,out='';
+  list.forEach(k=>{const [sz,f,st]=BOX[k];if(x+sz>x0+w){x=x0;y-=rowH+1;rowH=0}
+    out+=`<rect x="${x}" y="${y-sz}" width="${sz-1}" height="${sz-1}" rx="1.5" fill="${f}" stroke="${st}" stroke-width="1.5"/>`;x+=sz+1;rowH=Math.max(rowH,sz)});
+  return out;
+}
+function setShift(k){
+  const s=SHIFT[k],t=document.getElementById('shiftTxt');
+  t.style.opacity=0;
+  setTimeout(()=>{t.innerHTML=`<div class="lbl">${s.lbl}</div><h3>${s.h}</h3><div class="q">${s.q}</div><div class="chips3">${s.c.map(x=>`<span>${x}</span>`).join('')}</div><p class="learn" style="margin-top:14px">${s.ex}</p>`;t.style.opacity=1},200);
+  if(k=='before'){document.getElementById('boxL').innerHTML=drawBoxes(s.L,36,50);document.getElementById('boxR').innerHTML=drawBoxes(s.R,228,66);}
+  else{document.getElementById('boxL').innerHTML=drawBoxes(s.L,28,58);document.getElementById('boxR').innerHTML=drawBoxes(s.R,232,58);}
+  document.getElementById('legend').innerHTML = k=='before'
+    ? '<span><i style="background:#fff;border:1.5px solid #68737D"></i>Every req counts as “one”</span>'
+    : '<span><i style="background:#173F5F"></i>Standard</span><span><i style="background:#E0912F"></i>Moderate</span><span><i style="background:#E51636"></i>Complex</span>';
+  document.getElementById('beam').style.transform=`rotate(${s.tilt}deg)`;
+  const pl=document.getElementById('panL'),pr=document.getElementById('panR');
+  pl.style.transformOrigin='60px 60px';pr.style.transformOrigin='260px 60px';
+  pl.style.transform=pr.style.transform=`rotate(${-s.tilt}deg)`;
+  document.getElementById('tBefore').classList.toggle('on',k=='before');
+  document.getElementById('tAfter').classList.toggle('on',k=='after');
+}
+document.getElementById('tBefore').onclick=()=>setShift('before');
+document.getElementById('tAfter').onclick=()=>setShift('after');
+setShift('before');
+
+/* AGE CHART */
+const VALS=[38,35,27,14,5];
+document.getElementById('ageChart').innerHTML=VALS.map((v,i)=>`<div class="col"><span class="v">${v}</span><div class="b" style="height:${v/38*100}%"></div><div class="tip"><b>${AGES[i]}</b>: about ${REMAIN[i]} hours of work remain on a standard req.<br>${STAGE[i]}.</div></div>`).join('');
+
+/* CALCULATOR */
+const DEFAULT=[[0,0],[0,1],[1,0],[1,2],[2,1],[2,3],[0,4]];
+let reqs=[];
+function hoursFor(r,wd){const rem=REMAIN[r.a]*MULT[r.c];return Math.min(rem,rem*wd/35)}
+function arc(p0,p1){const a0=Math.PI*(1-p0),a1=Math.PI*(1-p1),x=a=>110+90*Math.cos(a),y=a=>110-90*Math.sin(a);return `M${x(a0)} ${y(a0)} A90 90 0 0 1 ${x(a1)} ${y(a1)}`}
+const SCALE=1.5;
+document.getElementById('arcG').setAttribute('d',arc(0,.7/SCALE));
+document.getElementById('arcY').setAttribute('d',arc(.7/SCALE,.9/SCALE));
+document.getElementById('arcR').setAttribute('d',arc(.9/SCALE,1));
+const wdEl=document.getElementById('wd'),ptoEl=document.getElementById('pto'),projEl=document.getElementById('proj');
+function renderRows(){
+  document.getElementById('reqRows').innerHTML=reqs.map((r,i)=>`<tr><td>Sample req ${i+1}</td>
+   <td><select data-i="${i}" data-k="c">${CNAME.map((n,j)=>`<option value="${j}" ${j==r.c?'selected':''}>${n} ×${MULT[j]}</option>`).join('')}</select></td>
+   <td><select data-i="${i}" data-k="a">${AGES.map((n,j)=>`<option value="${j}" ${j==r.a?'selected':''}>${n}</option>`).join('')}</select></td>
+   <td class="h" style="font-weight:700;color:var(--navy)"></td><td><button class="x" data-del="${i}" aria-label="Remove" title="Remove this req">×</button></td></tr>`).join('');
+  calc();
+}
+function calc(){
+  const wd=+wdEl.value,pto=+ptoEl.value,proj=+projEl.value;
+  document.getElementById('wdo').textContent=wd+' days'; document.getElementById('ptoo').textContent=pto+' hrs'; document.getElementById('projo').textContent=proj+' hrs';
+  let tot=0; document.querySelectorAll('#reqRows tr').forEach((tr,i)=>{const h=hoursFor(reqs[i],wd);tot+=h;tr.querySelector('.h').textContent=h.toFixed(1)});
+  const avail=Math.max(wd*8-pto-proj,1), p=tot/avail*100;
+  document.getElementById('pct').textContent=Math.round(p)+'%';
+  const z=p<70?'G':p<=90?'Y':'R', zc={G:['GREEN · HEALTHY','var(--green)'],Y:['YELLOW · WATCH CLOSELY','var(--amber)'],R:['RED · CHECK IN','var(--red)']}[z];
+  const pill=document.getElementById('zonePill'); pill.textContent=zc[0]; pill.style.background=zc[1];
+  ['G','Y','R'].forEach(k=>document.getElementById('z'+k).classList.toggle('act',k==z));
+  document.getElementById('needle').style.transform=`rotate(${Math.min(p/100/SCALE,1)*180-90}deg)`;
+  const nC=reqs.filter(r=>r.c==2).length,nNew=reqs.filter(r=>r.a<=1).length;
+  document.getElementById('calcLearn').innerHTML='<b>What you’re learning:</b> '+(
+    z=='R'?`this workload is in the red at ${Math.round(p)}%. That's a signal to check in and talk through tradeoffs, not a judgment of the person. ${pto+proj>0?'Notice how PTO and project time shrink the hours available. ':''}`
+   :z=='Y'?`at ${Math.round(p)}%, this workload is in the yellow, so it's worth watching. One new complex req or a week of PTO could tip it into the red.`
+   :`at ${Math.round(p)}%, this workload is healthy. Try adding new complex reqs or PTO to see how quickly that changes.`)
+   +` Right now, ${nC} of ${reqs.length} reqs are complex and ${nNew} are new (4 weeks or less), and new, complex reqs carry the most work. Two people with the same number of reqs can land in very different zones.`;
+  document.getElementById('math').innerHTML=`<b>Work in this period:</b> ${tot.toFixed(1)} hrs across ${reqs.length} reqs<br><b>Available time:</b> ${wd} days × 8 − ${pto} PTO − ${proj} project = ${avail} hrs<br><b>Capacity:</b> ${tot.toFixed(1)} ÷ ${avail} = ${Math.round(p)}%${p>100?' <i>(above 100% shows how far over the workload runs)</i>':''}`;
+}
+[wdEl,ptoEl,projEl].forEach(e=>e.addEventListener('input',calc));
+document.getElementById('reqRows').addEventListener('change',e=>{const s=e.target;if(s.dataset.i!==undefined){reqs[s.dataset.i][s.dataset.k]=+s.value;calc()}});
+document.getElementById('reqRows').addEventListener('click',e=>{const d=e.target.dataset.del;if(d!==undefined){reqs.splice(+d,1);renderRows()}});
+document.getElementById('addReq').onclick=()=>{if(reqs.length<30){reqs.push({c:0,a:0});renderRows()}};
+function resetCalc(){reqs=DEFAULT.map(([c,a])=>({c,a}));wdEl.value=20;ptoEl.value=0;projEl.value=16;renderRows()}
+document.getElementById('resetCalc').onclick=resetCalc;
+resetCalc();
+
+/* TABS */
+const TABS=[["Hidden work becomes visible.","Complexity, timing and competing work become part of the workload conversation."],
+ ["See where capacity actually exists.","Pace activations, rebalance work and discuss tradeoffs using shared evidence."],
+ ["Move from reactive to predictive.","See demand pressure earlier and act before overload becomes the problem."]];
+function tab(i){document.querySelectorAll('.tabs button').forEach((b,j)=>b.classList.toggle('on',i==j));
+ const tp=document.getElementById('tp');tp.style.animation='none';tp.offsetHeight;tp.style.animation='';tp.innerHTML=`<h3>${TABS[i][0]}</h3><p>${TABS[i][1]}</p>`}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>tab(+b.dataset.t)); tab(0);
+
+/* PILOT */
+const IMPR=[["Model read higher than reality","Refined multipliers and reduced baseline hours","Numbers track closer to real workload"],
+ ["First weeks are the heaviest lift","Added a finer early-stage (0–2 week) age bucket","Front-loaded effort is captured accurately"],
+ ["Time away skewed capacity","Added PTO, project-hour and planned non-PTO time inputs","Team trips and restaurant visits count against real availability"],
+ ["100% felt like a hard ceiling","Removed the cap; added green/amber/red zones","Shows healthy vs. overloaded, not just “full”"]];
+document.querySelectorAll('.impr button').forEach(b=>b.onclick=()=>{
+  const i=+b.dataset.i,d=document.getElementById('imprDetail'),was=b.classList.contains('on');
+  document.querySelectorAll('.impr button').forEach(x=>x.classList.remove('on'));
+  if(was){d.classList.remove('open');return}
+  b.classList.add('on');d.innerHTML=`<b>What we heard:</b> ${IMPR[i][0]}<br><b>What we changed:</b> ${IMPR[i][1]}<br><b>Why it matters:</b> ${IMPR[i][2]}`;d.classList.add('open')});
+let counted=false;
+new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!counted){counted=true;
+  document.querySelectorAll('.count').forEach(el=>{const to=+el.dataset.to,t0=performance.now();
+   (function step(t){const k=Math.min((t-t0)/1100,1);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)})(t0)})}})},{threshold:.4}).observe(document.querySelector('.pilot'));
+
+/* GUARDRAIL */
+document.querySelectorAll('.gbtn').forEach(b=>b.onclick=()=>b.classList.toggle('on'));
+
+/* FRAMEWORK */
+const FW={"Project teams":["A project or deliverable","Scope and stakeholders","Hours after other commitments"],
+ "Service teams":["A request or ticket","How hard it is to resolve","Hours on the queue"],
+ "Consulting":["A client engagement","Engagement size and complexity","Hours available for clients"],
+ "Operations":["A work order or process run","Process difficulty","Shift hours available"],
+ "Portfolio-based work":["A portfolio item","Effort to manage each item","Hours across the portfolio"],
+ "Relationship management":["An account or relationship","Account needs and complexity","Time for account work"],
+ "Restaurant activations":["A restaurant opening","Opening complexity","Team hours for openings"]};
+document.getElementById('fchips').innerHTML=Object.keys(FW).map(k=>`<button>${k}</button>`).join('');
+document.querySelectorAll('#fchips button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#fchips button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  const v=FW[b.textContent];['fU','fE','fA'].forEach((id,i)=>document.getElementById(id).textContent=v[i]);
+  document.getElementById('fnote').textContent=`Illustrative example: how the framework could map to ${b.textContent.toLowerCase()}.`});
+
+/* COMPLEXITY ASSESSMENT (questions and scoring from Requisition Complexity Assessment.html) */
+const skillsSet=new Set([
+  "Does the role require hard-to-verify skills or credentials?",
+  "Is this role competing internally with other priority requisitions for similar talent?",
+  "Is there a specialized skill evaluation? (case study, field test, etc.)",
+  "Does the role require specialized or niche sourcing?",
+  "Does the role require a degree in a specific field and/or specific certification?"]);
+const posQ=[
+  "Is there a history of this role being difficult to fill?",
+  "Does the role require specialized or niche sourcing?",
+  "Are multiple stakeholders involved in the decision-making?",
+  "Would delay in filling this role cause major business impact?",
+  "Has the role been open longer than 6 months?",
+  "Has the role been open longer than 9 months?",
+  "Is the role for an executive office/family office?",
+  "Does the role require hard-to-verify skills or credentials?",
+  "Is this role competing internally with other priority requisitions for similar talent?",
+  "Is there a specialized skill evaluation? (case study, field test, etc.)",
+  "Does the role require a degree in a specific field and/or specific certification?"];
+const negQ=[
+  "Is this a pipeline role?",
+  "Is the talent pool plentiful and easy to source?",
+  "Are the role requirements clear and stable?",
+  "Do we have contractors that could fill in as we work on the requisition?",
+  "Is there a talent community for this role?",
+  "Is there an internal candidate identified as a strong fit for this role?"];
+const caQ=[...posQ.map(t=>({text:t,yes:1,group:skillsSet.has(t)?'skills':'pos'})),...negQ.map(t=>({text:t,yes:-1,group:'neg'}))];
+let caR=new Array(caQ.length).fill(null);
+function caGroup(elId,g){
+  const c=document.getElementById(elId);c.innerHTML='';
+  caQ.forEach((q,i)=>{
+    if(q.group!==g)return;
+    const a=caR[i], pts=a===null?'—':a==='yes'?q.yes:0;
+    const pc=pts==='—'?'':pts>0?'pos':pts<0?'neg':'';
+    const rc=a===null?'':a==='yes'?(q.yes>0?'a-pos':'a-neg'):'a-no';
+    const row=document.createElement('div');row.className='q-row '+rc;
+    row.innerHTML=`<div class="q-text">${q.text}</div><div class="tog"><button class="tb yes ${a==='yes'?(q.yes>0?'ap':'an'):''}" data-q="${i}" data-v="yes">Yes</button><button class="tb no ${a==='no'?'ac':''}" data-q="${i}" data-v="no">No</button></div><div class="pts ${pc}">${pts>0?'+'+pts:pts}</div>`;
+    c.appendChild(row);
+  });
+}
+function caRender(){
+  caGroup('caPos','pos');caGroup('caSkills','skills');caGroup('caNeg','neg');
+  const n=caR.filter(r=>r!==null).length;
+  const score=caR.reduce((s,r,i)=>s+(r==='yes'?caQ[i].yes:0),0);
+  document.getElementById('caCount').textContent=`${n} of ${caQ.length} answered${n?` · score ${score}`:''}`;
+  const b=document.getElementById('caBadge'),m=document.getElementById('caMult');
+  if(!n){b.className='ca-badge pending';b.textContent='Pending';m.textContent='';return}
+  const lvl=score<=0?0:score<=4?1:2;
+  b.className='ca-badge '+['standard','moderate','complex'][lvl];b.textContent=CNAME[lvl];
+  m.textContent=`RPS multiplier: ×${MULT[lvl]}`;
+}
+document.getElementById('ca').addEventListener('click',e=>{
+  const t=e.target.closest('.tb');if(!t)return;
+  const i=+t.dataset.q;caR[i]=caR[i]===t.dataset.v?null:t.dataset.v;caRender();
+});
+document.getElementById('caReset').onclick=()=>{caR=new Array(caQ.length).fill(null);caRender()};
+caRender();
+
+/* DEFINITIONS & FAQS */
+const DEFS=[["Requisition Point System (RPS)","A way to understand recruiting capacity by the effort each req requires, not by counting reqs."],
+["Requisition (req)","One open role a recruiter is working to fill."],
+["Complexity","How much effort a req takes to fill: Standard, Moderate or Complex. Complexity is about effort, not job level."],
+["Requisition Complexity Assessment","A Yes/No questionnaire that rates a req as Standard, Moderate or Complex. Complexity factors add a point; favorable factors take one away."],
+["Multiplier","The factor that scales a standard req's hours by complexity: Standard ×1.0, Moderate ×1.25, Complex ×1.5."],
+["Standard baseline","The hours of work a standard req needs from start to finish: about 37.75 hours."],
+["Requisition age","How long a req has been open. Effort is front-loaded, so new reqs need the most work and older reqs need less."],
+["Available time","Workdays × 8 hours, minus PTO and project work. The hours someone actually has for recruiting."],
+["Capacity %","Hours of work needed ÷ hours available. Above 100% is useful information, not an error."],
+["Capacity zones","Green under 70% (Healthy), Yellow 70–90% (Watch closely), Red over 90% (Check in)."]];
+const FAQS=[["Is RPS used to evaluate recruiters' performance?","No. RPS is about capacity, not performance. It supports workload conversations and is never used for evaluations, goals, rankings or ratings."],
+["Who can see a recruiter's capacity?","SSAs see only their own view. No one is compared to anyone else."],
+["Does RPS make staffing decisions?","No. Leaders keep their judgment. RPS informs decisions; it doesn't make them."],
+["Why not just count reqs?","When every req counts as “one,” different workloads look the same. A smaller number of complex reqs can create more work than a larger number of standard ones."],
+["How is a req's complexity decided?","With the Requisition Complexity Assessment. Answer Yes or No to each question: complexity factors add a point and favorable factors take one away. A score of 0 or less is Standard, 1–4 is Moderate and 5 or more is Complex."],
+["Why does a new req count for more than an older one?","Most of the work happens early: prep, posting, screening and hiring manager syncs. As a req moves toward offer and close, less work remains."],
+["What does it mean if capacity is above 100%?","The workload needs more hours than the person has available. RPS doesn't cap the number, so leaders can see how far over it runs and act early."],
+["Why are PTO and project work included?","Capacity is personal, not a flat assumption. Time away and project work reduce the hours available for recruiting."],
+["How was RPS tested?","Through a live pilot of 10+ weeks. Participants logged 40 feedback items, and 36 improvements were delivered to the model, dashboard and experience."],
+["Are the numbers on this page real?","No. The calculator and comparisons use generic sample reqs and simplified math. They're illustrative, not live data."],
+["Who built RPS?","Talent Acquisition Enablement and People Analytics, together with the pilot participants."]];
+document.getElementById('defList').innerHTML=DEFS.map(([a,b])=>`<div class="def"><dt>${a}</dt><dd>${b}</dd></div>`).join('');
+document.getElementById('faqList').innerHTML=FAQS.map(([a,b])=>`<details class="faq"><summary>${a}</summary><p>${b}</p></details>`).join('');
+</script>
+</body>
+</html>
