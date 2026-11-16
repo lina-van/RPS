@@ -243,8 +243,11 @@ footer{background:var(--navy);color:#fff;font-size:13px;padding:14px 0;text-alig
 <mso:lcf76f155ced4ddcb4097134ff3c332f msdt:dt="string"></mso:lcf76f155ced4ddcb4097134ff3c332f>
 <mso:TaxCatchAll msdt:dt="string"></mso:TaxCatchAll>
 <mso:AuditStatus msdt:dt="string">Approved</mso:AuditStatus>
-<mso:LastReviewDate msdt:dt="string">2026-11-11T00:00:00Z</mso:LastReviewDate>
-<mso:NextReview msdt:dt="string">2027-11-11T00:00:00Z</mso:NextReview>
+<mso:LastReviewDate msdt:dt="string">2026-11-14T00:00:00Z</mso:LastReviewDate>
+<mso:NextReview msdt:dt="string">2027-11-14T00:00:00Z</mso:NextReview>
+<mso:Owner msdt:dt="string">11</mso:Owner>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Owner msdt:dt="string">Tara Dorsey</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Owner>
+<mso:Overview msdt:dt="string">The Requisition Point System (RPS) interactive infographic is a  resource designed to explain the RPS process, its purpose, and how it supports talent acquisition and workforce planning activities.</mso:Overview>
 </mso:CustomDocumentProperties>
 </xml><![endif]-->
 </head>
@@ -563,10 +566,16 @@ function hero(){
     document.getElementById(k+'Title').textContent=o.n+' '+CNAME[o.c]+' reqs';
     document.getElementById(k+'Icons').innerHTML=reqIcon(k=='a'?'#E51636':'#173F5F').repeat(o.n);
   });
-  const ea=A.n*REMAIN[A.a]*MULT[A.c], eb=B.n*REMAIN[B.a]*MULT[B.c], mx=Math.max(ea,eb);
+  const ea=A.n*REMAIN[A.a]*MULT[A.c], eb=B.n*REMAIN[B.a]*MULT[B.c], MAXH=20*REMAIN[0]*MULT[2];
   const ab=document.getElementById('aBar'), bb=document.getElementById('bBar');
-  ab.style.width=(ea/mx*100)+'%'; ab.textContent='A: ~'+fmt(ea)+' hrs';
-  bb.style.width=(eb/mx*100)+'%'; bb.textContent='B: ~'+fmt(eb)+' hrs';
+  ab.style.width=(ea/MAXH*100)+'%';
+  bb.style.width=(eb/MAXH*100)+'%';
+  [[ab,ea,'A'],[bb,eb,'B']].forEach(([bar,h,k])=>{
+    const label=document.createElement('span'), short=h/MAXH*100<20;
+    bar.style.position='relative'; bar.textContent=''; label.textContent=k+': ~'+fmt(h)+' hrs';
+    label.style.cssText=short?'position:absolute;left:calc(100% + 8px);top:50%;transform:translateY(-50%);color:#173F5F;white-space:nowrap':'color:#fff';
+    bar.appendChild(label);
+  });
   document.getElementById('countOnly').textContent=`A = ${A.n} reqs, B = ${B.n} reqs`;
   const same=Math.abs(ea-eb)<1, r=ea>eb?ea/eb:eb/ea;
   document.getElementById('cmpNote').textContent = same ? 'The two workloads require about the same effort.' :
